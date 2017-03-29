@@ -27,7 +27,7 @@ class GroupsController < ApplicationController
     else
       render :edit
     end
-    end
+  end
 def destroy
   @group=Group.find(params[:id])
   @group.destroy
