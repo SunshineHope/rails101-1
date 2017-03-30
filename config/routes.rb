@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root 'welcome#index'
-  root 'groups#index'
+  devise_for :users
+
   resources :groups do
     member do
       post :join
@@ -10,5 +11,11 @@ Rails.application.routes.draw do
     end
     resources :posts
   end
-  devise_for :users
+
+  namespace :account do
+    resources :groups
+  end
+  
+  root 'groups#index'
+
   end
