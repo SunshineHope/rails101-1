@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'groups#index'
   resources :groups do
+    member do
+      post :join
+      post :quit
+    end
     resources :posts
   end
   devise_for :users
