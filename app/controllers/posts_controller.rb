@@ -16,6 +16,18 @@ class PostsController < ApplicationController
       render :new
     end
   end
+def edit
+  # @group =Group.find(params[:group_id])
+  # @post =Post.new(post_params)
+  # @post.group =@group
+  # @post.user =current_user
+
+end
+def destroy
+  @posts=Post.find(params[:id])
+  @posts.destroy
+  redirect_to   account_posts_path   ,alert:"Group deleted"
+end
 
  private
  def post_params
